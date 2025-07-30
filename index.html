@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Développeur Web & Mobile</title>
+    <meta name="description" content="Portfolio de développeur web et mobile en formation. Spécialisé en HTML, CSS, JavaScript, PHP et animations immersives.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body class="font-sans text-gray-100 bg-black overflow-x-hidden">
+    <!-- Dark Mist Canvas Background -->
+    
+    <!-- Header Navigation -->
+    <header>
+        <a href="#main-content" class="skip-link">Passer au contenu principal</a>
+        <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" aria-current="page">Accueil</a>
+                <a href="#parcours" class="nav-link">Parcours</a>
+                <a href="#projects" class="nav-link">Projets</a>
+                <a href="#about" class="nav-link">À propos</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </nav>
+        <button class="dark-mode-toggle" aria-label="Basculer le mode sombre/clair">🌙 Mode Sombre</button>
+    </header>
+
+    <!-- Hero Section -->
+    <main id="main-content" class="main-content">
+        <section id="home" class="hero" role="region" aria-label="Section d'accueil">
+            <h1 class="hero-title animate-on-scroll">Développeur Web & Mobile</h1>
+            <p class="hero-subtitle animate-on-scroll">Création d'expériences numériques immersives avec des animations ténébreuses et un design élégant</p>
+            <a href="#projects" class="cta-button animate-on-scroll">Voir mes projets</a>
+            
+            <div class="scroll-indicator" role="button" aria-label="Faire défiler vers la section suivante">
+                <span class="scroll-text">Découvrir</span>
+                <div class="scroll-arrow" aria-hidden="true"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Main Content Sections will be added here -->
+
+    <!-- Scripts -->
+    <script src="src/js/particles.js"></script>
+    <script src="src/js/navigation.js"></script>
+    <script src="src/js/hero.js"></script>
+    <script src="src/js/dark-mode.js"></script>
+</body>
+</html>

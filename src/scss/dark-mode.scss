@@ -1,0 +1,208 @@
+// Dark Mode Variables
+$light-bg: #f8f9fa;
+$light-bg-secondary: #e9ecef;
+$light-text: #212529;
+$light-text-secondary: #6c757d;
+$light-border: #dee2e6;
+$light-shadow: rgba(0, 0, 0, 0.1);
+
+// Light Mode Styles
+.light-mode {
+  --background-dark: #{$light-bg};
+  --background-darker: #{$light-bg-secondary};
+  --text-light: #{$light-text};
+  --text-gray: #{$light-text-secondary};
+  --border-color: #{$light-border};
+  --shadow-sm: #{$light-shadow};
+  --shadow-md: #{$light-shadow};
+  --shadow-lg: #{$light-shadow};
+  --shadow-xl: #{$light-shadow};
+  
+  body {
+    background-color: $light-bg;
+    color: $light-text;
+  }
+  
+  // Header
+  header {
+    background: rgba($light-bg-secondary, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid $light-border;
+    
+    &.sticky {
+      background: rgba($light-bg, 0.95);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  // Navigation
+  .main-nav {
+    background: rgba($light-bg-secondary, 0.95);
+    
+    &.nav-open {
+      background: rgba($light-bg, 0.95);
+    }
+  }
+  
+  .nav-link {
+    color: $light-text-secondary;
+    
+    &.active, &:hover {
+      color: $light-text;
+    }
+  }
+  
+  // Sections
+  .timeline-section,
+  .projects-section,
+  .about-section,
+  .contact-section {
+    &::before {
+      background: radial-gradient(
+        circle at center,
+        rgba(248, 249, 250, 0.8) 0%,
+        rgba(233, 236, 239, 1) 100%
+      );
+    }
+  }
+  
+  // Cards and containers
+  .timeline-content,
+  .projects-grid .project-card,
+  .about-content,
+  .contact-form {
+    background: rgba($light-bg-secondary, 0.8);
+    border: 1px solid $light-border;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Text colors
+  .section-title {
+    color: $light-text;
+  }
+  
+  .timeline-year {
+    color: #6610f2;
+  }
+  
+  .about-text,
+  .timeline-description {
+    color: $light-text-secondary;
+  }
+  
+  // Buttons
+  .btn,
+  .cta-button,
+  .filter-btn.active,
+  .project-link,
+  .modal-link.primary {
+    background: linear-gradient(90deg, #6610f2, #5a0fc2);
+    
+    &:hover {
+      background: linear-gradient(90deg, #7215d1, #6610f2);
+    }
+  }
+  
+  .filter-btn {
+    background: rgba($light-bg-secondary, 0.8);
+    border: 1px solid $light-border;
+    color: $light-text-secondary;
+    
+    &:hover {
+      background: rgba($light-bg, 0.9);
+      border-color: $light-border;
+      color: $light-text;
+    }
+  }
+  
+  // Form elements
+  .form-control {
+    background-color: $light-bg;
+    border: 1px solid $light-border;
+    color: $light-text;
+    
+    &:focus {
+      border-color: #6610f2;
+      box-shadow: 0 0 0 3px rgba(102, 16, 242, 0.2);
+    }
+  }
+  
+  // Modal
+  #project-modal,
+  #successModal {
+    background: rgba(248, 249, 250, 0.95);
+  }
+  
+  .modal-content {
+    background: rgba($light-bg, 0.95);
+    border: 1px solid $light-border;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+  
+  .modal-title,
+  .modal-text {
+    color: $light-text;
+  }
+  
+  // Dark mist canvas (hidden in light mode)
+  #dark-mist-canvas {
+    display: none;
+  }
+  
+  // Easter egg heart (different color in light mode)
+  .easter-egg-heart {
+    color: #ff1493;
+  }
+}
+
+// Dark Mode Toggle Button
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  padding: 0.75rem 1.5rem;
+  background: rgba(10, 5, 15, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 84, 200, 0.3);
+  border-radius: 50px;
+  color: #e0d5ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  .toggle-icon {
+    font-size: 1.2rem;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(168, 84, 200, 0.4);
+    background: rgba(15, 8, 25, 0.9);
+  }
+  
+  @media (max-width: 768px) {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.7rem 1.3rem;
+    font-size: 0.8rem;
+  }
+}
+
+// Animation for mode transition
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Ensure smooth transition for all elements
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}

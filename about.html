@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Développeur Web & Mobile</title>
+    <meta name="description" content="Découvrez mon parcours, mes compétences techniques et mes passions en développement web et mobile.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body class="font-sans text-gray-100 bg-black overflow-x-hidden">
+    <!-- Dark Mist Canvas Background -->
+    
+    <!-- Header Navigation -->
+    <header>
+        <a href="#main-content" class="skip-link">Passer au contenu principal</a>
+        <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="parcours.html" class="nav-link">Parcours</a>
+                <a href="projects.html" class="nav-link">Projets</a>
+                <a href="#about" class="nav-link active" aria-current="page">À propos</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </nav>
+        <button class="dark-mode-toggle" aria-label="Basculer le mode sombre/clair">🌙 Mode Sombre</button>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section" role="region" aria-label="Section à propos de moi">
+        <h2 class="section-title animate-on-scroll">À propos de moi</h2>
+        
+        <div class="about-container">
+            <div class="about-content animate-on-scroll">
+                <!-- Floating particles will be added by JavaScript -->
+                
+                <p class="about-text">
+                    Passionné par le développement web et mobile depuis plus de 5 ans, je crée des expériences numériques immersives
+                    qui allient esthétique sombre et fonctionnalité optimale. Mon approche combine des designs ténébreux avec
+                    des animations fluides et des interactions intuitives.
+                </p>
+                
+                <p class="about-text">
+                    Spécialisé dans les technologies modernes comme React, Vue.js, et les frameworks mobiles, je transforme
+                    des idées complexes en solutions élégantes et performantes. Mon portfolio reflète mon engagement envers
+                    l'excellence technique et le design innovant.
+                </p>
+                
+                <!-- Skills Section -->
+                <div class="skills-section">
+                    <h3 class="skills-title animate-on-scroll">Compétences Techniques</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript/TypeScript</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar" data-level="95%">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React & Vue.js</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar" data-level="90%">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js & PHP</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar" data-level="85%">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Mobile (React Native, Flutter)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar" data-level="80%">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technologies Section -->
+                <div class="technologies-section">
+                    <h3 class="technologies-title animate-on-scroll">Technologies Maîtrisées</h3>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon">⚡</div>
+                            <div class="tech-name">JavaScript</div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-icon">🔷</div>
+                            <div class="tech-name">TypeScript</div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-icon">⚛️</div>
+                            <div class="tech-name">React</div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-icon">/vue</div>
+                            <div class="tech-name">Vue.js</div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-icon">📱</div>
+                            <div class="tech-name">React Native</div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-icon">🎯</div>
+                            <div class="tech-name">Flutter</div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-icon">🌐</div>
+                            <div class="tech-name">Node.js</div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-icon">🐘</div>
+                            <div class="tech-name">PHP</div>
+                        </div>
+                        
+                        <div class="tech-item">
+                            <div class="tech-icon">📊</div>
+                            <div class="tech-name">MongoDB</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Profile Image -->
+            <div class="profile-image-container animate-on-scroll">
+                <img src="assets/profile.jpg" alt="Photo de profil du développeur" class="profile-image">
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Easter Egg Trigger (hidden) -->
+    <div id="easter-egg" style="display: none;"></div>
+
+    <!-- Scripts -->
+    <script src="src/js/particles.js"></script>
+    <script src="src/js/navigation.js"></script>
+    <script src="src/js/about.js"></script>
+    <script src="src/js/dark-mode.js"></script>
+</body>
+</html>

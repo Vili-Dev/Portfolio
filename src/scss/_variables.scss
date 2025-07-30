@@ -1,0 +1,50 @@
+// Color Variables
+$primary-color: #a854c8;
+$primary-dark: #8a4cb4;
+$secondary-color: #c0b5e0;
+$background-dark: #050208;
+$background-darker: #0a050f;
+$text-light: #e0d5ff;
+$text-gray: #c0b5e0;
+$border-color: rgba(168, 84, 200, 0.2);
+
+// Typography
+$font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-xxl: 4rem;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1200px;
+
+// Z-index
+$z-index-header: 1000;
+$z-index-modal: 2000;
+$z-index-tooltip: 3000;
+
+// Animations
+$transition-base: 0.3s ease;
+$transition-fast: 0.2s ease;
+$transition-slow: 0.5s ease;
+
+// Shadows
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+// Border radius
+$border-radius-sm: 5px;
+$border-radius-md: 10px;
+$border-radius-lg: 15px;
+$border-radius-xl: 20px;

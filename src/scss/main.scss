@@ -1,0 +1,146 @@
+// Import variables first
+@import 'variables';
+
+// Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $text-light;
+  background-color: $background-dark;
+  overflow-x: hidden;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: $spacing-md;
+  color: $text-light;
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: $spacing-md;
+  color: $text-gray;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-base;
+  
+  &:hover {
+    color: $primary-dark;
+  }
+}
+
+// Layout
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  
+  @media (max-width: $breakpoint-mobile) {
+    padding: 0 $spacing-sm;
+  }
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  background: linear-gradient(90deg, $primary-color, $primary-dark);
+  color: white;
+  border: none;
+  border-radius: $border-radius-lg;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all $transition-base;
+  box-shadow: 0 4px 20px rgba($primary-color, 0.4);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba($primary-color, 0.6);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &--secondary {
+    background: transparent;
+    color: $primary-color;
+    border: 1px solid $border-color;
+    
+    &:hover {
+      background: rgba($primary-color, 0.1);
+      border-color: $primary-color;
+    }
+  }
+}
+
+// Forms
+.form-control {
+  width: 100%;
+  padding: $spacing-sm;
+  font-size: $font-size-base;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  background-color: darken($background-darker, 5%);
+  color: $text-light;
+  transition: border-color $transition-base, box-shadow $transition-base;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+  }
+}
+
+// Accessibility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Skip link for keyboard navigation
+.skip-link {
+  position: absolute;
+  top: -$spacing-lg;
+  left: $spacing-md;
+  background: $primary-color;
+  color: white;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  z-index: $z-index-tooltip;
+  transition: top $transition-base;
+  
+  &:focus {
+    top: $spacing-md;
+  }
+}
+
+// Import component styles
+@import 'particles';
+@import 'navigation';
+@import 'hero';
+@import 'timeline';
+@import 'projects';
+@import 'about';
+@import 'mobile';
+@import 'dark-mode';

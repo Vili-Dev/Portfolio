@@ -1,0 +1,50 @@
+#dark-mist-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.7;
+  mix-blend-mode: soft-light;
+  
+  // Enhanced dark mist effect with gradient overlay
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center,
+      rgba(20, 10, 30, 0.8) 0%,
+      rgba(10, 5, 15, 0.9) 70%,
+      rgba(5, 2, 8, 1) 100%
+    );
+    pointer-events: none;
+  }
+}
+
+// Animation for spectral glow pulses
+@keyframes spectralPulse {
+  0%, 100% {
+    opacity: 0.6;
+    filter: blur(2px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(4px);
+  }
+}
+
+.spectral-element {
+  animation: spectralPulse 4s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+// Hover interaction enhancement
+.spectral-element:hover {
+  opacity: 1;
+  filter: blur(2px) brightness(1.2);
+  transform: scale(1.02);
+}

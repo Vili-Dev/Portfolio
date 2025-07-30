@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcours - Développeur Web & Mobile</title>
+    <meta name="description" content="Mon parcours de formation en développement web et mobile depuis mai 2025.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="dist/css/main.css">
+</head>
+<body class="font-sans text-gray-100 bg-black overflow-x-hidden">
+    <!-- Dark Mist Canvas Background -->
+    
+    <!-- Header Navigation -->
+    <header>
+        <a href="#main-content" class="skip-link">Passer au contenu principal</a>
+        <nav class="main-nav" role="navigation" aria-label="Navigation principale">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="#parcours" class="nav-link active" aria-current="page">Parcours</a>
+                <a href="projects.html" class="nav-link">Projets</a>
+                <a href="about.html" class="nav-link">À propos</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </nav>
+        <button class="dark-mode-toggle" aria-label="Basculer le mode sombre/clair">🌙 Mode Sombre</button>
+    </header>
+
+    <!-- Timeline Section -->
+    <section id="parcours" class="timeline-section" role="region" aria-label="Section du parcours professionnel">
+        <h2 class="section-title">Mon Parcours</h2>
+        
+        <div class="timeline">
+            <div class="timeline-entry">
+                <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Mai 2025</div>
+                    <h3 class="timeline-title">Début de la Formation</h3>
+                    <p class="timeline-description">Lancement de ma formation intensive en développement web et mobile, avec un focus sur les technologies modernes et les bonnes pratiques de codage.</p>
+                </div>
+            </div>
+
+            <div class="timeline-entry">
+                <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Juin 2025</div>
+                    <h3 class="timeline-title">Maîtrise du Frontend</h3>
+                    <p class="timeline-description">Approfondissement des compétences en HTML5, CSS3/SCSS et JavaScript ES6+. Création de sites responsives avec animations fluides et transitions élégantes.</p>
+                </div>
+            </div>
+
+            <div class="timeline-entry">
+                <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Juillet 2025</div>
+                    <h3 class="timeline-title">Backend & Bases de données</h3>
+                    <p class="timeline-description">Découverte de PHP pour le développement backend et MySQL pour la gestion des bases de données. Mise en place d'architectures MVC simples.</p>
+                </div>
+            </div>
+
+            <div class="timeline-entry">
+                <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Août 2025</div>
+                    <h3 class="timeline-title">Projets Complets</h3>
+                    <p class="timeline-description">Développement de projets complets incluant un jeu RPG en PHP, une maquette de site de tatoueurs sombre, et des mini-sites interactifs avec animations immersives.</p>
+                </div>
+            </div>
+
+            <div class="timeline-entry">
+                <div class="timeline-marker">
+                    <div class="marker-dot"></div>
+                    <div class="marker-line"></div>
+                </div>
+                <div class="timeline-content">
+                    <div class="timeline-year">Sept 2025</div>
+                    <h3 class="timeline-title">Stage & Alternance</h3>
+                    <p class="timeline-description">Recherche active d'un stage ou d'une alternance en développement web/mobile, ou début en freelance pour appliquer mes compétences dans un contexte professionnel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="src/js/particles.js"></script>
+    <script src="src/js/navigation.js"></script>
+    <script src="src/js/timeline.js"></script>
+    <script src="src/js/dark-mode.js"></script>
+</body>
+</html>
