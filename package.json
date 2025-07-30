@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-developpeur-web-mobile",
+  "version": "1.0.0",
+  "description": "Portfolio complet pour développeur web & mobile en formation, avec design ténébreux et animations immersives",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
+    "build": "npm run sass:compile",
+    "sass:compile": "sass src/scss/main.scss dist/css/main.css --style compressed",
+    "sass:watch": "sass src/scss/main.scss dist/css/main.css --style compressed --watch",
+    "serve": "npx serve -s -p 3000"
+  },
+  "keywords": [
+    "portfolio",
+    "developpeur",
+    "web",
+    "mobile",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Developpeur Web & Mobile",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "sass": "^1.77.8",
+    "serve": "^14.2.4"
+  }
+}

@@ -39,8 +39,9 @@
         <button class="dark-mode-toggle" aria-label="Basculer le mode sombre/clair">🌙 Mode Sombre</button>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Main Content -->
     <main id="main-content" class="main-content">
+        <!-- Hero Section -->
         <section id="home" class="hero" role="region" aria-label="Section d'accueil">
             <h1 class="hero-title animate-on-scroll">Développeur Web & Mobile</h1>
             <p class="hero-subtitle animate-on-scroll">Création d'expériences numériques immersives avec des animations ténébreuses et un design élégant</p>
@@ -51,14 +52,439 @@
                 <div class="scroll-arrow" aria-hidden="true"></div>
             </div>
         </section>
-    </main>
 
-    <!-- Main Content Sections will be added here -->
+        <!-- Timeline Section -->
+        <section id="parcours" class="timeline-section" role="region" aria-label="Section du parcours professionnel">
+            <h2 class="section-title">Mon Parcours</h2>
+            
+            <div class="timeline">
+                <div class="timeline-entry">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">Mai 2025</div>
+                        <h3 class="timeline-title">Début de la Formation</h3>
+                        <p class="timeline-description">Lancement de ma formation intensive en développement web et mobile, avec un focus sur les technologies modernes et les bonnes pratiques de codage.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">Juin 2025</div>
+                        <h3 class="timeline-title">Maîtrise du Frontend</h3>
+                        <p class="timeline-description">Approfondissement des compétences en HTML5, CSS3/SCSS et JavaScript ES6+. Création de sites responsives avec animations fluides et transitions élégantes.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">Juillet 2025</div>
+                        <h3 class="timeline-title">Backend & Bases de données</h3>
+                        <p class="timeline-description">Découverte de PHP pour le développement backend et MySQL pour la gestion des bases de données. Mise en place d'architectures MVC simples.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">Août 2025</div>
+                        <h3 class="timeline-title">Projets Complets</h3>
+                        <p class="timeline-description">Développement de projets complets incluant un jeu RPG en PHP, une maquette de site de tatoueurs sombre, et des mini-sites interactifs avec animations immersives.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-entry">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">Sept 2025</div>
+                        <h3 class="timeline-title">Stage & Alternance</h3>
+                        <p class="timeline-description">Recherche active d'un stage ou d'une alternance en développement web/mobile, ou début en freelance pour appliquer mes compétences dans un contexte professionnel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section" role="region" aria-label="Section des projets">
+            <h2 class="section-title">Mes Projets</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-container" role="toolbar" aria-label="Filtres de projets">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="game">Jeu</button>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-type="game" data-tech="PHP, MySQL, HTML, CSS, JavaScript">
+                    <div class="project-image-container">
+                        <img src="assets/project-rpg.jpg" alt="Jeu RPG en PHP" class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Jeu RPG en PHP</h3>
+                                <p class="project-description">Jeu de rôle développé en PHP avec système de combat, inventaire et progression.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank">Voir</a>
+                                    <a href="#" class="project-link" target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-type="web" data-tech="HTML, SCSS, JavaScript, Anime.js">
+                    <div class="project-image-container">
+                        <img src="assets/project-tattoo.jpg" alt="Maquette de site de tatoueurs" class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Site de Tatoueurs</h3>
+                                <p class="project-description">Maquette sombre et immersive pour un studio de tatouage avec animations fluides.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank">Voir</a>
+                                    <a href="#" class="project-link" target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-type="web" data-tech="HTML, SCSS, JavaScript, Bootstrap">
+                    <div class="project-image-container">
+                        <img src="assets/project-template.jpg" alt="Intégration de template open source" class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Template Open Source</h3>
+                                <p class="project-description">Intégration et personnalisation d'un template open source avec animations uniques.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank">Voir</a>
+                                    <a href="#" class="project-link" target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-type="web" data-tech="HTML, SCSS, JavaScript, Canvas">
+                    <div class="project-image-container">
+                        <img src="assets/project-interactive.jpg" alt="Mini-site interactif" class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Mini-site Interactif</h3>
+                                <p class="project-description">Site interactif avec animations immersives et effets ténébreux en JavaScript.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank">Voir</a>
+                                    <a href="#" class="project-link" target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-type="mobile" data-tech="HTML, SCSS, JavaScript, Framework7">
+                    <div class="project-image-container">
+                        <img src="assets/project-mobile.jpg" alt="Application mobile web" class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Application Mobile</h3>
+                                <p class="project-description">Application web mobile avec interface tactile et animations fluides.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank">Voir</a>
+                                    <a href="#" class="project-link" target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-type="game" data-tech="JavaScript, Canvas, Web Audio API">
+                    <div class="project-image-container">
+                        <img src="assets/project-puzzle.jpg" alt="Jeu de puzzle en JavaScript" class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3 class="project-title">Jeu de Puzzle</h3>
+                                <p class="project-description">Jeu de puzzle développé en JavaScript pur avec génération aléatoire et sons immersifs.</p>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" target="_blank">Voir</a>
+                                    <a href="#" class="project-link" target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section" role="region" aria-label="Section à propos de moi">
+            <h2 class="section-title animate-on-scroll">À propos de moi</h2>
+            
+            <div class="about-container">
+                <div class="about-content animate-on-scroll">
+                    <!-- Floating particles will be added by JavaScript -->
+                    
+                    <p class="about-text">
+                        Passionné par le développement web et mobile depuis plus de 5 ans, je crée des expériences numériques immersives
+                        qui allient esthétique sombre et fonctionnalité optimale. Mon approche combine des designs ténébreux avec
+                        des animations fluides et des interactions intuitives.
+                    </p>
+                    
+                    <p class="about-text">
+                        Spécialisé dans les technologies modernes comme React, Vue.js, et les frameworks mobiles, je transforme
+                        des idées complexes en solutions élégantes et performantes. Mon portfolio reflète mon engagement envers
+                        l'excellence technique et le design innovant.
+                    </p>
+                    
+                    <!-- Skills Section -->
+                    <div class="skills-section">
+                        <h3 class="skills-title animate-on-scroll">Compétences Techniques</h3>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript/TypeScript</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar" data-level="95%">
+                                <div class="skill-fill"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>React & Vue.js</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar" data-level="90%">
+                                <div class="skill-fill"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Node.js & PHP</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar" data-level="85%">
+                                <div class="skill-fill"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Mobile (React Native, Flutter)</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar" data-level="80%">
+                                <div class="skill-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Technologies Section -->
+                    <div class="technologies-section">
+                        <h3 class="technologies-title animate-on-scroll">Technologies Maîtrisées</h3>
+                        
+                        <div class="tech-grid">
+                            <div class="tech-item">
+                                <div class="tech-icon">⚡</div>
+                                <div class="tech-name">JavaScript</div>
+                            </div>
+                            
+                            <div class="tech-item">
+                                <div class="tech-icon">🔷</div>
+                                <div class="tech-name">TypeScript</div>
+                            </div>
+                            
+                            <div class="tech-item">
+                                <div class="tech-icon">⚛️</div>
+                                <div class="tech-name">React</div>
+                            </div>
+                            
+                            <div class="tech-item">
+                                <div class="tech-icon">/vue</div>
+                                <div class="tech-name">Vue.js</div>
+                            </div>
+                            
+                            <div class="tech-item">
+                                <div class="tech-icon">📱</div>
+                                <div class="tech-name">React Native</div>
+                            </div>
+                            
+                            <div class="tech-item">
+                                <div class="tech-icon">🎯</div>
+                                <div class="tech-name">Flutter</div>
+                            </div>
+                            
+                            <div class="tech-item">
+                                <div class="tech-icon">🌐</div>
+                                <div class="tech-name">Node.js</div>
+                            </div>
+                            
+                            <div class="tech-item">
+                                <div class="tech-icon">🐘</div>
+                                <div class="tech-name">PHP</div>
+                            </div>
+                            
+                            <div class="tech-item">
+                                <div class="tech-icon">📊</div>
+                                <div class="tech-name">MongoDB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Profile Image -->
+                <div class="profile-image-container animate-on-scroll">
+                    <img src="assets/profile.jpg" alt="Photo de profil du développeur" class="profile-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section py-20" role="region" aria-label="Section de contact">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title text-center mb-16 animate-on-scroll">Contactez-moi</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Information -->
+                    <div class="contact-info animate-on-scroll">
+                        <div class="info-item mb-8">
+                            <div class="info-icon text-4xl mb-4">📧</div>
+                            <h3 class="info-title text-xl font-semibold mb-2">Email</h3>
+                            <p class="info-text text-gray-300">contact@devportfolio.com</p>
+                            <p class="info-subtext text-sm text-purple-300 mt-1">Réponse sous 24h garantie</p>
+                        </div>
+                        
+                        <div class="info-item mb-8">
+                            <div class="info-icon text-4xl mb-4">📱</div>
+                            <h3 class="info-title text-xl font-semibold mb-2">Téléphone</h3>
+                            <p class="info-text text-gray-300">+33 6 12 34 56 78</p>
+                            <p class="info-subtext text-sm text-purple-300 mt-1">Disponible 9h-18h</p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon text-4xl mb-4">📍</div>
+                            <h3 class="info-title text-xl font-semibold mb-2">Localisation</h3>
+                            <p class="info-text text-gray-300">Paris, France</p>
+                            <p class="info-subtext text-sm text-purple-300 mt-1">Disponible pour missions sur site</p>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="social-links mt-12">
+                            <h3 class="text-lg font-semibold mb-4">Réseaux professionnels</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="social-link">LinkedIn</a>
+                                <a href="#" class="social-link">GitHub</a>
+                                <a href="#" class="social-link">Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form-container animate-on-scroll">
+                        <form id="contactForm" class="contact-form bg-gray-900/50 backdrop-blur-lg p-8 rounded-2xl border border-purple-500/20">
+                            <div class="form-group mb-6">
+                                <label for="name" class="block text-purple-200 font-medium mb-2">Nom</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-200" placeholder="Votre nom complet">
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <div class="form-group mb-6">
+                                <label for="email" class="block text-purple-200 font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-200" placeholder="votre@email.com">
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <div class="form-group mb-6">
+                                <label for="subject" class="block text-purple-200 font-medium mb-2">Sujet</label>
+                                <input type="text" id="subject" name="subject" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-200" placeholder="Objet de votre message">
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <div class="form-group mb-6">
+                                <label for="message" class="block text-purple-200 font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white placeholder-gray-400 transition-all duration-200 resize-none" placeholder="Décrivez votre projet ou posez votre question..."></textarea>
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <div class="form-group mb-6">
+                                <div class="captcha flex items-center">
+                                    <input type="checkbox" id="human" name="human" required class="w-5 h-5 text-purple-600 rounded focus:ring-purple-500 focus:ring-2">
+                                    <label for="human" class="ml-3 text-gray-300">Je suis humain (anti-spam)</label>
+                                </div>
+                                <div class="error-message text-red-400 text-sm mt-1 hidden"></div>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn w-full py-4 px-8 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                                <span class="submit-text">Envoyer le message</span>
+                                <span class="loading-text hidden">Envoi en cours...</span>
+                            </button>
+                            
+                            <div id="formMessage" class="form-message mt-4 text-center hidden"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Scripts -->
     <script src="src/js/particles.js"></script>
     <script src="src/js/navigation.js"></script>
     <script src="src/js/hero.js"></script>
     <script src="src/js/dark-mode.js"></script>
+    
+    <!-- Expose particles instance to global scope -->
+    <script>
+      // Make particles instance available globally
+      document.addEventListener('DOMContentLoaded', () => {
+        // Store reference to particles instance
+        if (typeof DarkMistParticles !== 'undefined') {
+          // The particles instance will be set in particles.js
+          window.darkMistParticles = null;
+          
+          // Create observer to detect when canvas is ready
+          const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+              mutation.addedNodes.forEach((node) => {
+                if (node.id === 'dark-mist-canvas') {
+                  // Assuming we can access the instance through the canvas
+                  window.darkMistParticles = document.darkMistInstance || null;
+                  observer.disconnect();
+                }
+              });
+            });
+          });
+          
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true
+          });
+        }
+      });
+    </script>
 </body>
 </html>

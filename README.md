@@ -64,8 +64,9 @@ Portfolio/
 
 ## Installation et utilisation
 1. Clonez le dépôt
-2. Ouvrez simplement les fichiers HTML dans un navigateur (pas besoin de serveur local)
-3. Pour modifier le style, éditez les fichiers SCSS dans `src/scss/` et compilez avec Sass
+2. Installez les dépendances avec `npm install`
+3. Lancez le serveur de développement avec `npm run dev`
+4. Pour une version de production, utilisez `npm run build`
 
 ## Personnalisation
 - **Animations de fond** : Modifiez `src/js/particles.js` pour ajuster la densité, la vitesse et les couleurs des particules

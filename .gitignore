@@ -1,0 +1,10 @@
+node_modules/
+dist/css/main.css.map
+.nyc_output
+coverage/
+.nyc_output
+.sass-cache
+.cache
+.vercel
+.env
+.DS_Store
