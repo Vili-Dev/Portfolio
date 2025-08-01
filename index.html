@@ -21,12 +21,12 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="dist/css/main.css">
 </head>
-<body class="font-sans text-gray-100 bg-black overflow-x-hidden">
+<body class="font-sans text-gray-100 overflow-x-hidden">
+<div class="content--canvas"></div>
     <!-- Dark Mist Canvas Background -->
     
     <!-- Header Navigation -->
     <header>
-        <a href="#main-content" class="skip-link">Passer au contenu principal</a>
         <nav class="main-nav" role="navigation" aria-label="Navigation principale">
             <div class="nav-links">
                 <a href="#home" class="nav-link active" aria-current="page">Accueil</a>
@@ -43,8 +43,8 @@
     <main id="main-content" class="main-content">
         <!-- Hero Section -->
         <section id="home" class="hero" role="region" aria-label="Section d'accueil">
-            <h1 class="hero-title animate-on-scroll">Développeur Web & Mobile</h1>
-            <p class="hero-subtitle animate-on-scroll">Création d'expériences numériques immersives avec des animations ténébreuses et un design élégant</p>
+            <h1 class="hero-title animate-on-scroll">Portfolio de Zaouchi Mohamed</h1>
+            <p class="hero-subtitle animate-on-scroll">Développeur Web & Web Mobile</p>
             <a href="#projects" class="cta-button animate-on-scroll">Voir mes projets</a>
             
             <div class="scroll-indicator" role="button" aria-label="Faire défiler vers la section suivante">
@@ -456,35 +456,7 @@
     <script src="src/js/navigation.js"></script>
     <script src="src/js/hero.js"></script>
     <script src="src/js/dark-mode.js"></script>
+    <script src="src/js/timeline.js"></script>
     
-    <!-- Expose particles instance to global scope -->
-    <script>
-      // Make particles instance available globally
-      document.addEventListener('DOMContentLoaded', () => {
-        // Store reference to particles instance
-        if (typeof DarkMistParticles !== 'undefined') {
-          // The particles instance will be set in particles.js
-          window.darkMistParticles = null;
-          
-          // Create observer to detect when canvas is ready
-          const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-              mutation.addedNodes.forEach((node) => {
-                if (node.id === 'dark-mist-canvas') {
-                  // Assuming we can access the instance through the canvas
-                  window.darkMistParticles = document.darkMistInstance || null;
-                  observer.disconnect();
-                }
-              });
-            });
-          });
-          
-          observer.observe(document.body, {
-            childList: true,
-            subtree: true
-          });
-        }
-      });
-    </script>
 </body>
 </html>
