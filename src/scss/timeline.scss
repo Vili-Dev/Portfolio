@@ -1,3 +1,13 @@
+// Responsive Breakpoint Strategy
+// -----------------------------------
+// This file implements a mobile-first responsive design approach:
+// - Base styles target mobile devices (default)
+// - Desktop styles are applied above 768px breakpoint
+// - Timeline markers are anchored to left (30px) on all devices
+// - Mobile layout uses simplified positioning with left alignment
+// - Desktop layout maintains content readability with left margin
+// - Breakpoint at 768px aligns with standard tablet/mobile threshold
+// - No centering of timeline markers on desktop view
 // Timeline Section Styles
 .timeline-section {
   padding: 8rem 1rem;
@@ -45,22 +55,6 @@
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(168, 84, 200, 0.8),
-      rgba(84, 42, 100, 0.4)
-    );
-    z-index: 1;
-  }
 }
 
 .timeline-entry {
@@ -71,57 +65,23 @@
   transform: translateY(20px);
   transition: all 0.3s ease;
   
-  // Left side entries
-  &:nth-child(odd) {
-    .timeline-content {
-      margin-left: 60px;
-      text-align: left;
-    }
-    
-    .timeline-marker {
-      left: 50%;
-      transform: translateX(-50%);
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 20px;
-        height: 2px;
-        background: linear-gradient(90deg, rgba(168, 84, 200, 0.6), transparent);
-        transform: translateY(-50%);
-      }
-    }
-  }
-  
-  // Right side entries
-  &:nth-child(even) {
-    .timeline-content {
-      margin-right: 60px;
-      text-align: right;
-    }
-    
-    .timeline-marker {
-      left: 50%;
-      transform: translateX(-50%);
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 20px;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(168, 84, 200, 0.6));
-        transform: translateY(-50%);
-      }
-    }
+  .timeline-content {
+    margin-left: 60px;
+    text-align: left;
   }
   
   &.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  .timeline-marker {
+    left: 30px;
+    transform: none;
+    
+    &::before {
+      display: none;
+    }
   }
 }
 
@@ -221,20 +181,17 @@
   .timeline-entry {
     padding: 1.5rem 0;
     
-    &:nth-child(odd),
-    &:nth-child(even) {
-      .timeline-content {
-        margin: 0 30px 0 60px;
-        text-align: left;
-      }
+    .timeline-content {
+      margin: 0 30px 0 60px;
+      text-align: left;
+    }
+    
+    .timeline-marker {
+      left: 30px;
+      transform: none;
       
-      .timeline-marker {
-        left: 30px;
-        transform: none;
-        
-        &::before {
-          display: none;
-        }
+      &::before {
+        display: none;
       }
     }
   }
