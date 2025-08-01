@@ -1,4 +1,21 @@
 // Color Variables
+:root {
+  /* Core theme variables */
+  --bg-primary: #050208;
+  --text-primary: #e0d6f5;
+  --particle-color: 168, 84, 200;
+  
+  /* SPA-specific variables */
+  --section-spacing: 100vh;
+  --nav-height: 4rem;
+}
+
+.light-mode {
+  --bg-primary: #f8f9fa;
+  --text-primary: #212529;
+  --particle-color: 50, 50, 150;
+}
+
 $primary-color: #a854c8;
 $primary-dark: #8a4cb4;
 $secondary-color: #c0b5e0;

@@ -1,13 +1,14 @@
 // Hero Section Styles
 .hero {
-  height: 100vh;
+  min-height: var(--section-spacing);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 1rem;
+  padding: 5rem 1rem;
   position: relative;
+  background: transparent !important;
   overflow: hidden;
   
 }

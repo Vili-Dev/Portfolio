@@ -18,11 +18,12 @@ header {
 }
 
 .main-nav {
+  height: var(--nav-height);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 4rem;
   padding: 0 1rem;
+  transition: background-color 0.3s ease;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -38,6 +39,10 @@ header {
     
     &.nav-open {
       left: 0;
+    }
+    
+    &.scrolled {
+      background: rgba(10, 5, 15, 0.9) !important;
     }
   }
 }

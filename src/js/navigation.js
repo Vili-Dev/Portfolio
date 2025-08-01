@@ -109,7 +109,7 @@ class ResponsiveNavigation {
         gsap.to(window, {
           duration: 1,
           scrollTo: {
-            y: target,
+            y: target.offsetTop - this.header.offsetHeight,
             autoKill: true
           },
           ease: "power2.out",
