@@ -181,11 +181,9 @@ a {
   align-items: center;
   justify-content: center;
   margin-left: 0.5rem;
+  stroke: rgba(255, 255, 255, 0.7);
 
   &:hover, &:focus {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--primary-color);
-    outline: none;
     
     .copy-icon {
       stroke: var(--primary-color);
@@ -211,7 +209,7 @@ a {
 }
 
 .copy-btn:hover .copy-icon {
-  stroke: var(--primary-color);
+  stroke: rgba(255, 255, 255, 0.7);
 }
 
 .copy-btn--success .copy-icon {
@@ -222,6 +220,7 @@ a {
 .copy-btn--success {
   background: rgba(16, 185, 129, 0.2);
   border-color: rgba(16, 185, 129, 0.4);
+   stroke: #10b981;
   
   .copy-icon {
     stroke: #10b981;
