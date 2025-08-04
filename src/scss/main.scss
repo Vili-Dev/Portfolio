@@ -168,3 +168,74 @@ a {
 @import 'mobile';
 @import 'dark-mode';
 @import 'timeline-progress';
+
+// Copy button styles
+.copy-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+
+  &:hover, &:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    outline: none;
+    
+    .copy-icon {
+      stroke: var(--primary-color);
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Copy button icon - simplified version */
+.copy-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke: rgba(255, 255, 255, 0.7);
+  display: block !important; /* Force display */
+  opacity: 1 !important; /* Force opacity */
+  visibility: visible !important; /* Force visibility */
+  transition: none; /* Remove all transitions */
+}
+
+.copy-btn:hover .copy-icon {
+  stroke: var(--primary-color);
+}
+
+.copy-btn--success .copy-icon {
+  stroke: #10b981;
+}
+
+// Success state (added via JS after successful copy)
+.copy-btn--success {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.4);
+  
+  .copy-icon {
+    stroke: #10b981;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .copy-btn {
+    padding: 0.75rem;
+    
+    .copy-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}

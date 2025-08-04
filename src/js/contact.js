@@ -1,6 +1,132 @@
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Contact form script loaded');
+    
     // Initialize EmailJS with your user ID
-    emailjs.init("ibPtZw_5umIZZ9YJj"); // Replace with your actual EmailJS user ID
+    emailjs.init("ibPtZw_5umIZZ9YJj");
+
+    // Copy to clipboard functionality with enhanced debugging
+    function copyToClipboard(text) {
+        console.log('Attempting to copy:', text);
+        return new Promise((resolve, reject) => {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                console.log('Using modern clipboard API');
+                navigator.clipboard.writeText(text).then(() => {
+                    console.log('Copy successful');
+                    resolve();
+                }).catch(err => {
+                    console.error('Clipboard API error:', err);
+                    reject(err);
+                });
+            } else {
+                console.log('Using fallback clipboard method');
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed'; // Prevent scrolling to bottom
+                document.body.appendChild(textarea);
+                textarea.select();
+                
+                try {
+                    const successful = document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    if (successful) {
+                        console.log('Fallback copy successful');
+                        resolve();
+                    } else {
+                        console.error('Fallback copy failed');
+                        reject(new Error('Fallback copy failed'));
+                    }
+                } catch (err) {
+                    document.body.removeChild(textarea);
+                    console.error('Fallback copy error:', err);
+                    reject(err);
+                }
+            }
+        });
+    }
+
+    // Show toast notification with improved styling
+    function showToast(message, isSuccess = true) {
+        const toast = document.createElement('div');
+        toast.className = `fixed bottom-6 right-6 px-4 py-3 rounded-md shadow-xl z-50 transform transition-all duration-300 ${
+            isSuccess ? 'bg-emerald-600' : 'bg-red-600'
+        } text-white font-medium flex items-center`;
+        
+        // Add checkmark/cross icon
+        const icon = document.createElement('span');
+        icon.className = 'mr-2';
+        icon.innerHTML = isSuccess ?
+            '✓' :
+            '✕';
+        toast.appendChild(icon);
+        
+        // Add message text
+        const text = document.createElement('span');
+        text.textContent = message;
+        toast.appendChild(text);
+        
+        document.body.appendChild(toast);
+
+        // Animate in
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+        }, 10);
+
+        // Animate out after delay
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(-20px)';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+
+    // Format phone number
+    function formatPhoneNumber(phone) {
+        // Remove all non-digit characters
+        const cleaned = phone.replace(/\D/g, '');
+        // Format French numbers
+        if (cleaned.length === 9 && cleaned.startsWith('6')) {
+            return `+33 ${cleaned.substring(0,1)} ${cleaned.substring(1,3)} ${cleaned.substring(3,5)} ${cleaned.substring(5,7)} ${cleaned.substring(7,9)}`;
+        }
+        return phone;
+    }
+
+    // Set up copy button event listeners
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', async () => {
+            const text = btn.dataset.copy;
+            // Determine if copying phone or email
+            const parentItem = btn.closest('.info-item');
+            const isPhone = parentItem && parentItem.querySelector('.info-title') &&
+                          parentItem.querySelector('.info-title').textContent.includes('Téléphone');
+            const textToCopy = isPhone ? formatPhoneNumber(text) : text;
+            
+            try {
+                await copyToClipboard(textToCopy);
+                showToast(isPhone ? 'Numéro copié !' : 'Email copié !');
+                
+                // Add visual feedback on button
+                btn.classList.add('copy-btn--success');
+                const icon = btn.querySelector('.copy-icon');
+                if (icon) {
+                    icon.setAttribute('stroke', '#10b981');
+                }
+                
+                // Reset success state after delay
+                setTimeout(() => {
+                    btn.classList.remove('copy-btn--success');
+                    if (icon) {
+                        icon.setAttribute('stroke', 'currentColor');
+                    }
+                }, 2000);
+            } catch (err) {
+                showToast('Erreur lors de la copie', false);
+                console.error('Copy failed:', err);
+            }
+        });
+    });
     
     // Check if hCaptcha is loaded
     if (typeof hcaptcha === 'undefined') {

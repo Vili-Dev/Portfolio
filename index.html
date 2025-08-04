@@ -129,7 +129,7 @@
                 <!-- Project 1 -->
                 <div class="project-card" data-type="game" data-tech="PHP, MySQL, HTML, CSS, JavaScript">
                     <div class="project-image-container">
-                        <img src="les img projetct/dbz-pendu.png" alt="Jeu RPG en PHP" class="project-image">
+                        <img src="les img projetct/dbz-pendu.png" alt="Jeu RPG en PHP" class="project-image" loading="lazy">
                         <div class="project-overlay">
                             <div class="project-info">
                                 <h3 class="project-title">Jeu du pendu JavaScript</h3>
@@ -562,14 +562,30 @@
                         <div class="info-item mb-8">
                             <div class="info-icon text-4xl mb-4">📧</div>
                             <h3 class="info-title text-xl font-semibold mb-2">Email</h3>
-                            <p class="info-text text-gray-300">m.z.dev@outlook.fr</p>
+                            <div class="flex items-center gap-2">
+                                <p class="info-text text-gray-300">m.z.dev@outlook.fr</p>
+                                <button class="copy-btn" data-copy="m.z.dev@outlook.fr" aria-label="Copier l'email">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="copy-icon">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
                             <p class="info-subtext text-sm text-purple-300 mt-1">Réponse sous 24h garantie</p>
                         </div>
                         
                         <div class="info-item mb-8">
                             <div class="info-icon text-4xl mb-4">📱</div>
                             <h3 class="info-title text-xl font-semibold mb-2">Téléphone</h3>
-                            <p class="info-text text-gray-300">+33 6 20 21 53 04</p>
+                            <div class="flex items-center gap-2">
+                                <p class="info-text text-gray-300">+33 6 20 21 53 04</p>
+                                <button class="copy-btn" data-copy="+33 6 20 21 53 04" aria-label="Copier le numéro de téléphone">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="copy-icon">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
                             <p class="info-subtext text-sm text-purple-300 mt-1">Disponible 9h-18h</p>
                         </div>
                         
@@ -650,8 +666,10 @@
                         <!-- hCaptcha Script -->
                         <script src="https://hcaptcha.com/1/api.js"></script>
                         <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+                        <script src="src/js/projects.js"></script>
+                        <!-- <script src="src/js/projects-refactored.js"></script> --> <!-- New version (disabled) -->
                         <script src="src/js/contact.js"></script>
-<script src="src/js/timeline-progress.js"></script>
+                        <script src="src/js/timeline-progress.js"></script>
 </div>
                 </div>
             </div>

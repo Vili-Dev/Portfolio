@@ -32,7 +32,6 @@ class ProjectsGrid {
     // Project modal functionality
     this.projectCards.forEach(card => {
       card.addEventListener('click', (e) => {
-        // Prevent modal opening on button clicks
         if (e.target.closest('.project-links')) return;
         
         const modal = document.getElementById('project-modal');
