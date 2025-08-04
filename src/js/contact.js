@@ -191,7 +191,25 @@ document.addEventListener('DOMContentLoaded', function() {
                     { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }
                 );
             }, function(error) {
-                console.log('FAILED...', error);
+                console.error('FORM SUBMISSION FAILED:', error);
+                console.error('Error details:', {
+                    status: error.status,
+                    text: error.text,
+                    formData: formData,
+                    captchaResponse: hcaptcha.getResponse()
+                });
+                console.error('EmailJS Configuration:', {
+                    serviceID: "service_portfolino",
+                    templateID: "template_puzwuil",
+                    userID: "ibPtZw_5umIZZ9YJj"
+                });
+                console.error('Form Validation:', {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value,
+                    captchaValid: hcaptcha.getResponse() !== ""
+                });
 
                 // Re-enable submit button
                 submitBtn.disabled = false;
@@ -209,10 +227,8 @@ document.addEventListener('DOMContentLoaded', function() {
         errorModal.classList.add('hidden');
         document.body.style.overflow = '';
         
-        // Reset reCAPTCHA if error occurred
-        if (!successModal.classList.contains('hidden')) {
-            grecaptcha.reset();
-        }
+        // Reset hCaptcha if error occurred
+        hcaptcha.reset();
     }
 
     closeModal.addEventListener('click', closeModals);
