@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize EmailJS with your user ID
-    emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your actual EmailJS user ID
+    emailjs.init("ibPtZw_5umIZZ9YJj"); // Replace with your actual EmailJS user ID
 
     const form = document.getElementById('contactForm');
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -9,76 +9,136 @@ document.addEventListener('DOMContentLoaded', function() {
     const formMessage = document.getElementById('formMessage');
     const successModal = document.getElementById('successModal');
     const closeModal = document.getElementById('closeModal');
+    const errorModal = document.getElementById('errorModal');
+    const closeErrorModal = document.getElementById('closeErrorModal');
+    const errorMessage = document.getElementById('errorMessage');
 
-    // Form validation
+    // Language support
+    const userLang = navigator.language || navigator.userLanguage;
+    const translations = {
+        'fr': {
+            nameRequired: 'Veuillez entrer votre nom',
+            emailRequired: 'Veuillez entrer votre email',
+            emailInvalid: 'Veuillez entrer un email valide',
+            subjectRequired: 'Veuillez entrer un sujet',
+            messageRequired: 'Veuillez entrer votre message',
+            messageLength: 'Votre message doit contenir au moins 10 caractères',
+            recaptchaRequired: 'Veuillez compléter le reCAPTCHA',
+            sending: 'Envoi en cours...',
+            sent: 'Message envoyé !',
+            sentMessage: 'Merci pour votre message. Je vous répondrai dans les plus brefs délais.',
+            error: 'Erreur',
+            errorMessage: 'Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer.',
+            close: 'Fermer'
+        },
+        'en': {
+            nameRequired: 'Please enter your name',
+            emailRequired: 'Please enter your email',
+            emailInvalid: 'Please enter a valid email',
+            subjectRequired: 'Please enter a subject',
+            messageRequired: 'Please enter your message',
+            messageLength: 'Your message must contain at least 10 characters',
+            recaptchaRequired: 'Please complete the reCAPTCHA',
+            sending: 'Sending...',
+            sent: 'Message sent!',
+            sentMessage: 'Thank you for your message. I will reply as soon as possible.',
+            error: 'Error',
+            errorMessage: 'An error occurred while sending your message. Please try again.',
+            close: 'Close'
+        }
+    };
+
+    const lang = translations[userLang.slice(0, 2)] || translations['fr'];
+
+    // Form validation with enhanced accessibility
     function validateForm() {
         let isValid = true;
         const name = document.getElementById('name');
         const email = document.getElementById('email');
         const subject = document.getElementById('subject');
         const message = document.getElementById('message');
-        const human = document.getElementById('human');
+        const captchaResponse = hcaptcha.getResponse();
 
-        // Reset previous error messages
+        // Reset previous error messages and ARIA attributes
         document.querySelectorAll('.error-message').forEach(el => {
             el.classList.add('hidden');
             el.textContent = '';
         });
+        
+        document.querySelectorAll('input, textarea').forEach(el => {
+            el.setAttribute('aria-invalid', 'false');
+            el.removeAttribute('aria-describedby');
+        });
 
         // Validate name
         if (!name.value.trim()) {
-            showError(name, 'Veuillez entrer votre nom');
+            showError(name, lang.nameRequired);
+            name.setAttribute('aria-invalid', 'true');
             isValid = false;
         }
 
         // Validate email
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email.value.trim()) {
-            showError(email, 'Veuillez entrer votre email');
+            showError(email, lang.emailRequired);
+            email.setAttribute('aria-invalid', 'true');
             isValid = false;
         } else if (!emailRegex.test(email.value.trim())) {
-            showError(email, 'Veuillez entrer un email valide');
+            showError(email, lang.emailInvalid);
+            email.setAttribute('aria-invalid', 'true');
             isValid = false;
         }
 
         // Validate subject
         if (!subject.value.trim()) {
-            showError(subject, 'Veuillez entrer un sujet');
+            showError(subject, lang.subjectRequired);
+            subject.setAttribute('aria-invalid', 'true');
             isValid = false;
         }
 
         // Validate message
         if (!message.value.trim()) {
-            showError(message, 'Veuillez entrer votre message');
+            showError(message, lang.messageRequired);
+            message.setAttribute('aria-invalid', 'true');
             isValid = false;
         } else if (message.value.trim().length < 10) {
-            showError(message, 'Votre message doit contenir au moins 10 caractères');
+            showError(message, lang.messageLength);
+            message.setAttribute('aria-invalid', 'true');
             isValid = false;
         }
 
-        // Validate human check
-        if (!human.checked) {
-            const humanError = human.parentElement.querySelector('.error-message');
-            humanError.classList.remove('hidden');
-            humanError.textContent = 'Veuillez confirmer que vous êtes humain';
+        // Validate hCaptcha
+        if (!captchaResponse) {
+            const captchaError = document.getElementById('captcha-error');
+            captchaError.classList.remove('hidden');
+            captchaError.textContent = lang.recaptchaRequired;
             isValid = false;
         }
 
         return isValid;
     }
 
-    // Show error message
+    // Show error message with ARIA support
     function showError(input, message) {
         const errorDiv = input.parentElement.querySelector('.error-message');
+        const errorId = 'error-' + input.id;
+        
+        errorDiv.id = errorId;
         errorDiv.classList.remove('hidden');
         errorDiv.textContent = message;
+        input.setAttribute('aria-describedby', errorId);
+        input.setAttribute('aria-invalid', 'true');
     }
 
-    // Show form message
-    function showFormMessage(type, message) {
+    // Show form message with multilingual support
+    function showFormMessage(type, messageKey) {
+        const message = lang[messageKey] || messageKey;
         formMessage.className = `form-message mt-4 text-center ${type === 'error' ? 'text-red-400' : 'text-green-400'}`;
         formMessage.textContent = message;
         formMessage.classList.remove('hidden');
+        
+        // Dispatch custom event for auto-hide
+        form.dispatchEvent(new CustomEvent('formMessageShown'));
     }
 
     // Handle form submission
@@ -93,31 +153,38 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = true;
         submitText.classList.add('hidden');
         loadingText.classList.remove('hidden');
+        loadingText.textContent = lang.sending;
 
         // Prepare form data for EmailJS
         const formData = {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
             subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
+            message: document.getElementById('message').value,
+            'h-captcha-response': captchaResponse
         };
 
         // Send email using EmailJS
-        emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+        emailjs.send("service_portfolino", "template_puzwuil", formData)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 
                 // Reset form
                 form.reset();
-                
+                hcaptcha.reset();
+
                 // Hide loading state
                 submitBtn.disabled = false;
                 submitText.classList.remove('hidden');
                 loadingText.classList.add('hidden');
-                
+
+                // Hide any visible messages
+                formMessage.classList.add('hidden');
+
                 // Show success modal
                 successModal.classList.remove('hidden');
-                
+                document.body.style.overflow = 'hidden';
+
                 // Animate modal appearance
                 gsap.fromTo(successModal,
                     { opacity: 0, y: 20 },
@@ -125,29 +192,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 );
             }, function(error) {
                 console.log('FAILED...', error);
-                
+
                 // Re-enable submit button
                 submitBtn.disabled = false;
                 submitText.classList.remove('hidden');
                 loadingText.classList.add('hidden');
-                
+
                 // Show error message
-                showFormMessage('error', 'Une erreur est survenue. Veuillez réessayer plus tard.');
+                showFormMessage('error', 'errorMessage');
             });
     });
 
-    // Close success modal
-    closeModal.addEventListener('click', function() {
+    // Close modals
+    function closeModals() {
         successModal.classList.add('hidden');
-        gsap.to(successModal, { opacity: 0, y: 20, duration: 0.3, ease: "power2.in" });
-    });
+        errorModal.classList.add('hidden');
+        document.body.style.overflow = '';
+        
+        // Reset reCAPTCHA if error occurred
+        if (!successModal.classList.contains('hidden')) {
+            grecaptcha.reset();
+        }
+    }
+
+    closeModal.addEventListener('click', closeModals);
+    closeErrorModal.addEventListener('click', closeModals);
 
     // Close modal when clicking outside
-    successModal.addEventListener('click', function(e) {
-        if (e.target === successModal) {
-            successModal.classList.add('hidden');
-            gsap.to(successModal, { opacity: 0, y: 20, duration: 0.3, ease: "power2.in" });
-        }
+    [successModal, errorModal].forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModals();
+            }
+        });
     });
 
     // Add input field animations
@@ -155,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
         input.addEventListener('focus', function() {
             this.parentElement.classList.add('focused');
         });
-        
+
         input.addEventListener('blur', function() {
             if (!this.value) {
                 this.parentElement.classList.remove('focused');
