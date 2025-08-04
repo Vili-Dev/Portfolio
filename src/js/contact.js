@@ -219,13 +219,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const captchaResponse = hcaptcha.getResponse();
 
 
-        const formData = {
-            name: name.value,
-            email: email.value,
-            subject: subject.value,
-            message: message.value,
-            'h-captcha-response': captchaResponse
-        };
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+    };
 
         // Send email using EmailJS
         emailjs.send("service_6krr5v3", "template_x7hq6ob", formData)
