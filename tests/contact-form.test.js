@@ -86,11 +86,12 @@ describe('Contact Form', () => {
   // Test successful form submission (mocked)
   test('should successfully submit form with valid data', () => {
     // Mock emailjs.send
+    const emailjsSendMock = jest.fn().mockResolvedValue({
+      status: 200,
+      text: 'OK'
+    });
     window.emailjs = {
-      send: jest.fn().mockResolvedValue({
-        status: 200,
-        text: 'OK'
-      })
+      send: emailjsSendMock
     };
     
     const form = document.getElementById('contactForm');
@@ -125,7 +126,7 @@ describe('Contact Form', () => {
     // Wait for async operation
     return new Promise(resolve => setTimeout(resolve, 100)).then(() => {
       // Check emailjs.send was called with correct data
-      expect(window.emailjs.send).toHaveBeenCalledWith(
+      expect(emailjsSendMock).toHaveBeenCalledWith(
         "service_6krr5v3", 
         "template_11rf5q8", 
         expect.objectContaining({
@@ -150,11 +151,12 @@ describe('Contact Form', () => {
     messageInput.value = 'Test message';
     
     // Mock successful submission
+    const emailjsSendMock2 = jest.fn().mockResolvedValue({
+      status: 200,
+      text: 'OK'
+    });
     window.emailjs = {
-      send: jest.fn().mockResolvedValue({
-        status: 200,
-        text: 'OK'
-      })
+      send: emailjsSendMock2
     };
     
     window.hcaptcha = {
@@ -169,6 +171,7 @@ describe('Contact Form', () => {
     return new Promise(resolve => setTimeout(resolve, 100)).then(() => {
       // Form should be reset
       expect(nameInput.value).toBe('');
+      expect(emailjsSendMock2).toHaveBeenCalled();
       expect(messageInput.value).toBe('');
       expect(window.hcaptcha.reset).toHaveBeenCalled();
     });
@@ -177,11 +180,12 @@ describe('Contact Form', () => {
   // Test error handling
   test('should handle form submission errors', () => {
     // Mock emailjs.send to reject
+    const emailjsSendMock3 = jest.fn().mockRejectedValue({
+      status: 500,
+      text: 'Internal Server Error'
+    });
     window.emailjs = {
-      send: jest.fn().mockRejectedValue({
-        status: 500,
-        text: 'Internal Server Error'
-      })
+      send: emailjsSendMock3
     };
     
     const form = document.getElementById('contactForm');
@@ -207,6 +211,7 @@ describe('Contact Form', () => {
     return new Promise(resolve => setTimeout(resolve, 100)).then(() => {
       // Check error message is shown
       expect(formMessage.classList.contains('hidden')).toBe(false);
+      expect(emailjsSendMock3).toHaveBeenCalled();
       expect(formMessage.textContent).toContain('Une erreur est survenue');
       
       // Submit button should be re-enabled
