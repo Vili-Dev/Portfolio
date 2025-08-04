@@ -216,6 +216,9 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingText.textContent = lang.sending;
 
         // Prepare form data for EmailJS with null safety
+        const captchaResponse = hcaptcha.getResponse();
+
+
         const formData = {
             name: name.value,
             email: email.value,
